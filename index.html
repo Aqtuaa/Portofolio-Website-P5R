@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Willys Loka | Software Engineering Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Persona 5 Background Canvas for Floating Stars -->
+  <canvas id="p5-canvas"></canvas>
+
+  <header>
+    <nav aria-label="Main Navigation">
+      <a href="#top"><span>Home</span></a>
+      <a href="#about"><span>About</span></a>
+      <a href="#projects"><span>Projects</span></a>
+      <a href="#skills"><span>Skills</span></a>
+      <a href="#journey"><span>Journey</span></a>
+      <a href="#contact"><span>Contact</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION WITH ALL-OUT ATTACK CUT-IN -->
+    <section id="top">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <h1>
+              <span class="plate">Willys</span>
+              <span class="plate">Loka</span>
+            </h1>
+            <span class="role disp">Aspiring Software Engineer</span>
+            <span class="sub">Software Engineering student at BINUS University. I build full-stack apps, test automation, and machine learning prototypes, and I lead and teach on the side.</span>
+            <div class="cta">
+              <a class="btn w" href="#projects">See projects</a>
+              <a class="btn b" href="#contact">Contact me</a>
+            </div>
+          </div>
+
+          <!-- PERSONA 5 PROFILE PHOTO CUT-IN -->
+          <div class="hero-cutin-wrapper">
+            <div class="cutin-card" title="Willys Loka - Phantom Thief Cut-In">
+              <div class="cutin-shadow"></div>
+              <div class="cutin-red-bg"></div>
+              <div class="cutin-frame">
+                <!-- If profile.jpg exists, loads it; otherwise falls back gracefully to profile.svg -->
+                <img id="profile-img" 
+                     src="assets/images/profile.jpg" 
+                     onerror="this.onerror=null; this.src='assets/images/profile.svg';" 
+                     alt="Willys Loka Profile Cut-in">
+                <div class="cutin-dots"></div>
+                <div class="cutin-slash-line"></div>
+              </div>
+              <div class="cutin-badge-top">DEV // CONFIDANT</div>
+              <div class="cutin-badge-bottom">WILLYS <span>LOKA</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="band" aria-label="Main stack">Java / Python / React / Spring Boot / MySQL / Selenium / Figma</div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="s" id="about">
+      <div class="wrap">
+        <h2 class="title">About</h2>
+        <div class="about">
+          <div class="about-text">
+            <p>I study Software Engineering at BINUS University (School of Computer Science) and love turning ideas into practical, well-organized software. Outside class I lead the Binusian Gaming community at BINUS Bekasi as Regional Campus President, mentor students in the SASC Scholarship and Beelingua programs, and teach mathematics and programming at Ruangguru. I am open to software development internships.</p>
+          </div>
+          <div class="facts">
+            <div class="fact"><b>GPA 3.9 / 4.0</b><i>BINUS University, since July 2024</i></div>
+            <div class="fact"><b>Dean's List 2025</b><i>School of Computer Science</i></div>
+            <div class="fact"><b>ONMIPA-PT 2026</b><i>BINUS delegate, Mathematics</i></div>
+            <div class="fact"><b>OPSI Gold Medal</b><i>Mathematics, February 2024</i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION (SOLO PROJECTS DIRECT TO SPECIFIC REPOSITORIES) -->
+    <section class="s" id="projects">
+      <div class="wrap">
+        <h2 class="title">Projects</h2>
+        <div class="grid">
+          <!-- 1. Selenium Automation -->
+          <a class="card big" href="https://github.com/Aqtuaa/Selenium-Project" target="_blank" rel="noopener noreferrer">
+            <div class="card-inner">
+              <span class="kind">Solo Project // Test Automation</span>
+              <h3>Selenium Automation <span class="icon-ext">↗</span></h3>
+              <div class="tags"><span>Java</span><span>Selenium</span><span>JUnit</span><span>Javalin</span></div>
+              <p>Three automated user flows on BINUS LMS: open a course, post a forum thread, and react to a thread. Each flow triggers a JUnit test suite via an embedded Javalin backend.</p>
+            </div>
+            <div class="card-action">
+              <span>TAKE YOUR HEART // VIEW REPO</span>
+              <span>Aqtuaa/Selenium-Project ↗</span>
+            </div>
+          </a>
+
+          <!-- 2. Genshin Review Classifier -->
+          <a class="card" href="https://github.com/Aqtuaa/LEC10_ML_GIReviewer" target="_blank" rel="noopener noreferrer">
+            <div class="card-inner">
+              <span class="kind">Solo Project // Machine Learning</span>
+              <h3>Genshin Review Classifier <span class="icon-ext">↗</span></h3>
+              <div class="tags"><span>Python</span><span>NLP</span><span>LSTM</span><span>Word2Vec</span></div>
+              <p>Predicts 1 to 5 star ratings from Play Store reviews. Compares TF-IDF and Word2Vec features across Random Forest, SVM, and LSTM, testing SMOTE on imbalanced classes.</p>
+            </div>
+            <div class="card-action">
+              <span>TAKE YOUR HEART // VIEW REPO</span>
+              <span>Aqtuaa/LEC10_ML_GIReviewer ↗</span>
+            </div>
+          </a>
+
+          <!-- 3. Fake News Detection -->
+          <a class="card" href="https://github.com/Aqtuaa/Fake-News-Detection-" target="_blank" rel="noopener noreferrer">
+            <div class="card-inner">
+              <span class="kind">Solo Project // Machine Learning</span>
+              <h3>Fake News Detector <span class="icon-ext">↗</span></h3>
+              <div class="tags"><span>Python</span><span>NLP</span><span>Scikit-Learn</span><span>Classification</span></div>
+              <p>Machine Learning built-in news classification model detecting fabricated news articles using natural language processing and linguistic feature analysis.</p>
+            </div>
+            <div class="card-action">
+              <span>TAKE YOUR HEART // VIEW REPO</span>
+              <span>Aqtuaa/Fake-News-Detection- ↗</span>
+            </div>
+          </a>
+
+          <!-- 4. Audio Transcriber Lite -->
+          <a class="card" href="https://github.com/Aqtuaa/Audio-Transciber-Lite" target="_blank" rel="noopener noreferrer">
+            <div class="card-inner">
+              <span class="kind">Solo Project // Speech AI Tool</span>
+              <h3>Audio Transcriber Lite <span class="icon-ext">↗</span></h3>
+              <div class="tags"><span>Python</span><span>AssemblyAI</span><span>Speech-to-Text</span><span>Audio</span></div>
+              <p>Lightweight Python tool converting audio recordings into formatted text using AssemblyAI's speech recognition pipeline. Simple, fast, and automated.</p>
+            </div>
+            <div class="card-action">
+              <span>TAKE YOUR HEART // VIEW REPO</span>
+              <span>Aqtuaa/Audio-Transciber-Lite ↗</span>
+            </div>
+          </a>
+
+          <!-- 5. The Brew's Origin -->
+          <a class="card" href="https://github.com/Aqtuaa/BrewsOriginWebsite" target="_blank" rel="noopener noreferrer">
+            <div class="card-inner">
+              <span class="kind">Solo Project // Frontend Design</span>
+              <h3>The Brew's Origin <span class="icon-ext">↗</span></h3>
+              <div class="tags"><span>HTML5</span><span>CSS3</span><span>UI/UX</span><span>Responsive</span></div>
+              <p>Modern artisanal coffee shop web design showcasing responsive layouts, custom aesthetic branding, product catalog cards, and smooth navigation.</p>
+            </div>
+            <div class="card-action">
+              <span>TAKE YOUR HEART // VIEW REPO</span>
+              <span>Aqtuaa/BrewsOriginWebsite ↗</span>
+            </div>
+          </a>
+
+          <!-- 6. InvestCount -->
+          <a class="card" href="https://github.com/Aqtuaa/InvestCount" target="_blank" rel="noopener noreferrer">
+            <div class="card-inner">
+              <span class="kind">Solo Project // Financial Calculator</span>
+              <h3>InvestCount <span class="icon-ext">↗</span></h3>
+              <div class="tags"><span>Python</span><span>Finance</span><span>Algorithms</span><span>CLI</span></div>
+              <p>Practical investment calculation tool to model portfolio returns, compound interest growth, and personal financial projections over time.</p>
+            </div>
+            <div class="card-action">
+              <span>TAKE YOUR HEART // VIEW REPO</span>
+              <span>Aqtuaa/InvestCount ↗</span>
+            </div>
+          </a>
+
+          <!-- 7. eNVision Project -->
+          <a class="card" href="https://github.com/Aqtuaa/eNVision-Project" target="_blank" rel="noopener noreferrer">
+            <div class="card-inner">
+              <span class="kind">Solo Project // HCI & Web Design</span>
+              <h3>eNVision Project <span class="icon-ext">↗</span></h3>
+              <div class="tags"><span>HTML5</span><span>CSS3</span><span>HCI Principles</span><span>UI Design</span></div>
+              <p>Web design project developed around Human-Computer Interaction (HCI) methodologies, focusing on visual hierarchy, accessibility, and user engagement.</p>
+            </div>
+            <div class="card-action">
+              <span>TAKE YOUR HEART // VIEW REPO</span>
+              <span>Aqtuaa/eNVision-Project ↗</span>
+            </div>
+          </a>
+
+          <!-- 8. Circle in Circle -->
+          <a class="card big" href="https://github.com/Aqtuaa/Circle-in-Circle" target="_blank" rel="noopener noreferrer">
+            <div class="card-inner">
+              <span class="kind">Solo Project // Creative Coding</span>
+              <h3>Circle in Circle <span class="icon-ext">↗</span></h3>
+              <div class="tags"><span>HTML5 Canvas</span><span>JavaScript</span><span>Trigonometry</span><span>Math</span></div>
+              <p>Geometric creative coding experiment rendering concentric and recursive nested circular patterns using mathematical coordinates and HTML5 canvas rendering.</p>
+            </div>
+            <div class="card-action">
+              <span>TAKE YOUR HEART // VIEW REPO</span>
+              <span>Aqtuaa/Circle-in-Circle ↗</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="s" id="skills">
+      <div class="wrap">
+        <h2 class="title">Skills</h2>
+        <div class="skills">
+          <div class="grp">
+            <h3>Build</h3>
+            <div class="chips">
+              <span>Java</span><span>Python</span><span>C</span><span>JavaScript</span><span>SQL</span>
+              <span>React</span><span>Spring Boot</span><span>Flask</span><span>REST APIs</span><span>JWT</span><span>MySQL</span>
+            </div>
+          </div>
+          <div class="grp">
+            <h3>Test &amp; Learn</h3>
+            <div class="chips">
+              <span>Selenium</span><span>JUnit</span><span>NLP</span><span>TF-IDF</span>
+              <span>Word2Vec</span><span>Random Forest</span><span>SVM</span><span>LSTM</span>
+            </div>
+          </div>
+          <div class="grp">
+            <h3>Tools</h3>
+            <div class="chips">
+              <span>Git / GitHub</span><span>VS Code</span><span>Maven</span><span>Railway</span><span>Vercel</span><span>Figma</span><span>Canva</span>
+            </div>
+          </div>
+          <div class="grp">
+            <h3>People</h3>
+            <div class="chips">
+              <span>Leadership</span><span>Event organizing</span><span>Teaching &amp; mentoring</span>
+              <span>Communication</span><span>Time management</span><span>Problem solving</span><span>Adaptability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY SECTION -->
+    <section class="s" id="journey">
+      <div class="wrap">
+        <h2 class="title">Journey</h2>
+        <div class="row"><div class="when">Sep 2026 - Now</div><div class="what"><b>SASC Scholarship Mentor</b><span>BINUS University. Mentoring scholarship students from three batches.</span></div></div>
+        <div class="row"><div class="when">May 2026 - Now</div><div class="what"><b>Beelingua Mentor</b><span>BINUS University. Mentoring 50 students online and contributing to the creative team.</span></div></div>
+        <div class="row"><div class="when">Mar 2026 - Now</div><div class="what"><b>Regional Campus President, Binusian Gaming</b><span>BINUS Bekasi. Leading the community, its events and partners. PIC of Binusian Gaming Expo B2030 (Aug 2026).</span></div></div>
+        <div class="row"><div class="when">Aug 2025 - Now</div><div class="what"><b>Class, Private &amp; Goes-to-School Teacher</b><span>Brain Academy by Ruangguru. Teaching mathematics across all grade levels.</span></div></div>
+        <div class="row"><div class="when">Aug - Dec 2025</div><div class="what"><b>Class Teacher</b><span>Kalananti by Ruangguru. Taught programming logic with Scratch to upper primary students.</span></div></div>
+        <div class="row"><div class="when">Apr 2025 - Now</div><div class="what"><b>Freelance Private Tutor</b><span>Kak Jon Tutoring and Genza Education.</span></div></div>
+        <div class="row"><div class="when">Jul 2024 - Now</div><div class="what"><b>B.CS, Software Engineering</b><span>BINUS University, School of Computer Science.</span></div></div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION (CALLING CARD) -->
+    <section class="s" id="contact">
+      <div class="wrap">
+        <div class="call">
+          <h2>Let's build something</h2>
+          <p>I'm open to software development internships and team projects. Say hello.</p>
+          <a class="btn w" href="mailto:willysloka25@gmail.com">Email me</a>
+          <a class="btn b" href="https://www.linkedin.com/in/willys-loka-88286a329" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn w" href="https://github.com/Aqtuaa" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 Willys Loka &bull; Phantom Thief of Hearts
+  </footer>
+
+  <!-- PERSONA 5 METAVERSE BGM & AUDIO CONTROLLER WIDGET -->
+  <aside class="p5-audio-widget" aria-label="Persona 5 Music Player">
+    <!-- Play/Pause Button -->
+    <button id="p5-play-btn" class="p5-play-btn" type="button" aria-label="Play Persona 5 BGM">
+      <div class="p5-equalizer" aria-hidden="true">
+        <div class="p5-eq-bar"></div>
+        <div class="p5-eq-bar"></div>
+        <div class="p5-eq-bar"></div>
+      </div>
+      <span id="p5-play-text">PLAY BGM</span>
+    </button>
+
+    <!-- Track Information -->
+    <div class="p5-track-info">
+      <span class="p5-track-title" title="Last Surprise - Persona 5">♪ Last Surprise</span>
+      <span class="p5-track-status">PAUSED</span>
+    </div>
+
+    <!-- Volume & SFX Controls -->
+    <div class="p5-audio-controls">
+      <button id="p5-mute-btn" class="p5-icon-btn" type="button" title="Mute / Unmute" aria-label="Mute / Unmute">
+        <span id="p5-mute-icon">🔊</span>
+      </button>
+
+      <input id="p5-volume-slider" class="p5-volume-slider" type="range" min="0" max="1" step="0.05" value="0.5" title="Volume Slider" aria-label="Volume Slider">
+
+      <button id="p5-sfx-toggle" class="p5-sfx-toggle active" type="button" title="Toggle UI Sound Effects">
+        SFX: ON
+      </button>
+    </div>
+
+    <!-- Background Audio Element -->
+    <audio id="bgm-player" src="assets/audio/last-surprise.mp3" loop preload="auto"></audio>
+  </aside>
+
+  <!-- Persona 5 JavaScript Logic -->
+  <script src="js/script.js"></script>
+</body>
+</html>
