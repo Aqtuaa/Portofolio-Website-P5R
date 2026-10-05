@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Persona 5 Background Canvas for Floating Stars -->
   <canvas id="p5-canvas"></canvas>
 
   <header>
@@ -25,7 +24,6 @@
   </header>
 
   <main>
-    <!-- HERO SECTION WITH ALL-OUT ATTACK CUT-IN -->
     <section id="top">
       <div class="wrap">
         <div class="hero-grid">
@@ -42,17 +40,12 @@
             </div>
           </div>
 
-          <!-- PERSONA 5 PROFILE PHOTO CUT-IN -->
           <div class="hero-cutin-wrapper">
             <div class="cutin-card" title="Willys Loka - Phantom Thief Cut-In">
               <div class="cutin-shadow"></div>
               <div class="cutin-red-bg"></div>
               <div class="cutin-frame">
-                <!-- If profile.jpg exists, loads it; otherwise falls back gracefully to profile.svg -->
-                <img id="profile-img" 
-                     src="assets/images/profile.jpg" 
-                     onerror="this.onerror=null; this.src='assets/images/profile.svg';" 
-                     alt="Willys Loka Profile Cut-in">
+                <img id="profile-img" src="assets/images/profile.jpeg">
                 <div class="cutin-dots"></div>
                 <div class="cutin-slash-line"></div>
               </div>
@@ -66,7 +59,6 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section class="s" id="about">
       <div class="wrap">
         <h2 class="title">About</h2>
@@ -84,12 +76,10 @@
       </div>
     </section>
 
-    <!-- PROJECTS SECTION (SOLO PROJECTS DIRECT TO SPECIFIC REPOSITORIES) -->
     <section class="s" id="projects">
       <div class="wrap">
         <h2 class="title">Projects</h2>
         <div class="grid">
-          <!-- 1. Selenium Automation -->
           <a class="card big" href="https://github.com/Aqtuaa/Selenium-Project" target="_blank" rel="noopener noreferrer">
             <div class="card-inner">
               <span class="kind">Solo Project // Test Automation</span>
@@ -103,7 +93,6 @@
             </div>
           </a>
 
-          <!-- 2. Genshin Review Classifier -->
           <a class="card" href="https://github.com/Aqtuaa/LEC10_ML_GIReviewer" target="_blank" rel="noopener noreferrer">
             <div class="card-inner">
               <span class="kind">Solo Project // Machine Learning</span>
@@ -117,7 +106,6 @@
             </div>
           </a>
 
-          <!-- 3. Fake News Detection -->
           <a class="card" href="https://github.com/Aqtuaa/Fake-News-Detection-" target="_blank" rel="noopener noreferrer">
             <div class="card-inner">
               <span class="kind">Solo Project // Machine Learning</span>
@@ -131,7 +119,6 @@
             </div>
           </a>
 
-          <!-- 4. Audio Transcriber Lite -->
           <a class="card" href="https://github.com/Aqtuaa/Audio-Transciber-Lite" target="_blank" rel="noopener noreferrer">
             <div class="card-inner">
               <span class="kind">Solo Project // Speech AI Tool</span>
@@ -145,7 +132,6 @@
             </div>
           </a>
 
-          <!-- 5. The Brew's Origin -->
           <a class="card" href="https://github.com/Aqtuaa/BrewsOriginWebsite" target="_blank" rel="noopener noreferrer">
             <div class="card-inner">
               <span class="kind">Solo Project // Frontend Design</span>
@@ -159,7 +145,6 @@
             </div>
           </a>
 
-          <!-- 6. InvestCount -->
           <a class="card" href="https://github.com/Aqtuaa/InvestCount" target="_blank" rel="noopener noreferrer">
             <div class="card-inner">
               <span class="kind">Solo Project // Financial Calculator</span>
@@ -173,7 +158,6 @@
             </div>
           </a>
 
-          <!-- 7. eNVision Project -->
           <a class="card" href="https://github.com/Aqtuaa/eNVision-Project" target="_blank" rel="noopener noreferrer">
             <div class="card-inner">
               <span class="kind">Solo Project // HCI & Web Design</span>
@@ -187,7 +171,6 @@
             </div>
           </a>
 
-          <!-- 8. Circle in Circle -->
           <a class="card big" href="https://github.com/Aqtuaa/Circle-in-Circle" target="_blank" rel="noopener noreferrer">
             <div class="card-inner">
               <span class="kind">Solo Project // Creative Coding</span>
@@ -204,7 +187,6 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION -->
     <section class="s" id="skills">
       <div class="wrap">
         <h2 class="title">Skills</h2>
@@ -240,7 +222,6 @@
       </div>
     </section>
 
-    <!-- JOURNEY SECTION -->
     <section class="s" id="journey">
       <div class="wrap">
         <h2 class="title">Journey</h2>
@@ -250,19 +231,102 @@
         <div class="row"><div class="when">Aug 2025 - Now</div><div class="what"><b>Class, Private &amp; Goes-to-School Teacher</b><span>Brain Academy by Ruangguru. Teaching mathematics across all grade levels.</span></div></div>
         <div class="row"><div class="when">Aug - Dec 2025</div><div class="what"><b>Class Teacher</b><span>Kalananti by Ruangguru. Taught programming logic with Scratch to upper primary students.</span></div></div>
         <div class="row"><div class="when">Apr 2025 - Now</div><div class="what"><b>Freelance Private Tutor</b><span>Kak Jon Tutoring and Genza Education.</span></div></div>
-        <div class="row"><div class="when">Jul 2024 - Now</div><div class="what"><b>B.CS, Software Engineering</b><span>BINUS University, School of Computer Science.</span></div></div>
+        <div class="row"><div class="when">Jul 2024 - Now</div><div class="what"><b>Undergraduate in Software Engineering</b><span>BINUS University, School of Computer Science (In Progress).</span></div></div>
       </div>
     </section>
 
-    <!-- CONTACT SECTION (CALLING CARD) -->
     <section class="s" id="contact">
       <div class="wrap">
-        <div class="call">
-          <h2>Let's build something</h2>
-          <p>I'm open to software development internships and team projects. Say hello.</p>
-          <a class="btn w" href="mailto:willysloka25@gmail.com">Email me</a>
-          <a class="btn b" href="https://www.linkedin.com/in/willys-loka-88286a329" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn w" href="https://github.com/Aqtuaa" target="_blank" rel="noopener">GitHub</a>
+        <h2 class="title">Calling Card</h2>
+        <div class="calling-card-container">
+          <div class="calling-card-top">
+            <img class="calling-card-emblem" src="assets/images/calling-card-hat.svg" alt="Phantom Thieves Top Hat - Take Your Heart">
+          </div>
+
+          <div class="calling-card-bottom">
+            <div class="c-letter-row header">
+              <span class="c-chip w-blk">Sir</span>
+              <span class="c-chip w-red">Recruiter,</span>
+              <span class="c-chip w-blk">Team</span>
+              <span class="c-chip r-wht">Lead,</span>
+              <span class="c-chip b-wht">&amp;</span>
+              <span class="c-chip w-blk">Collaborator,</span>
+            </div>
+
+            <div class="c-letter-row">
+              <span class="c-chip w-blk">We</span>
+              <span class="c-chip w-red">know</span>
+              <span class="c-chip b-wht">you</span>
+              <span class="c-chip w-blk">seek</span>
+              <span class="c-chip r-wht">software</span>
+              <span class="c-chip w-blk">crafted</span>
+              <span class="c-chip b-wht">with</span>
+              <span class="c-chip w-red">excellence</span>
+              <span class="c-chip w-blk">and</span>
+              <span class="c-chip r-wht">precision.</span>
+            </div>
+
+            <div class="c-letter-row">
+              <span class="c-chip b-wht">That's</span>
+              <span class="c-chip w-blk">why</span>
+              <span class="c-chip w-red">I</span>
+              <span class="c-chip w-blk">have</span>
+              <span class="c-chip r-wht">decided</span>
+              <span class="c-chip b-wht">to</span>
+              <span class="c-chip w-blk">steal</span>
+              <span class="c-chip w-red">away</span>
+              <span class="c-chip b-wht">all</span>
+              <span class="c-chip r-wht">technical</span>
+              <span class="c-chip w-blk">hurdles,</span>
+            </div>
+
+            <div class="c-letter-row">
+              <span class="c-chip w-blk">and</span>
+              <span class="c-chip r-wht">deliver</span>
+              <span class="c-chip b-wht">impactful</span>
+              <span class="c-chip w-red">full-stack,</span>
+              <span class="c-chip w-blk">automation,</span>
+              <span class="c-chip b-wht">&amp;</span>
+              <span class="c-chip r-wht">ML</span>
+              <span class="c-chip w-blk">solutions.</span>
+            </div>
+
+            <div class="c-letter-row">
+              <span class="c-chip w-red">This</span>
+              <span class="c-chip b-wht">collaboration</span>
+              <span class="c-chip w-blk">awaits,</span>
+              <span class="c-chip r-wht">so</span>
+              <span class="c-chip b-wht">I</span>
+              <span class="c-chip w-red">hope</span>
+              <span class="c-chip w-blk">you</span>
+              <span class="c-chip r-wht">will</span>
+              <span class="c-chip b-wht">be</span>
+              <span class="c-chip w-red">ready.</span>
+            </div>
+
+            <div class="c-letter-row signoff">
+              <span class="c-chip w-blk">From,</span>
+              <span class="c-chip r-wht">Willys</span>
+              <span class="c-chip b-wht">Loka</span>
+              <span class="c-chip w-blk">//</span>
+              <span class="c-chip w-red">Phantom</span>
+              <span class="c-chip r-wht">Thief</span>
+              <span class="c-chip b-wht">of</span>
+              <span class="c-chip w-blk">Hearts</span>
+            </div>
+
+            <div class="c-actions">
+              <a class="c-btn w" href="mailto:willysloka25@gmail.com">
+                <span>✉ Email Me</span>
+              </a>
+              <a class="c-btn r" href="https://www.linkedin.com/in/willys-loka-88286a329" target="_blank" rel="noopener">
+                <span>✦ LinkedIn</span>
+              </a>
+              <a class="c-btn b" href="https://github.com/Aqtuaa" target="_blank" rel="noopener">
+                <span>★ GitHub Profile</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -272,9 +336,7 @@
     &copy; 2026 Willys Loka &bull; Phantom Thief of Hearts
   </footer>
 
-  <!-- PERSONA 5 METAVERSE BGM & AUDIO CONTROLLER WIDGET -->
   <aside class="p5-audio-widget" aria-label="Persona 5 Music Player">
-    <!-- Play/Pause Button -->
     <button id="p5-play-btn" class="p5-play-btn" type="button" aria-label="Play Persona 5 BGM">
       <div class="p5-equalizer" aria-hidden="true">
         <div class="p5-eq-bar"></div>
@@ -284,30 +346,26 @@
       <span id="p5-play-text">PLAY BGM</span>
     </button>
 
-    <!-- Track Information -->
     <div class="p5-track-info">
       <span class="p5-track-title" title="Last Surprise - Persona 5">♪ Last Surprise</span>
-      <span class="p5-track-status">PAUSED</span>
+      <span class="p5-track-status">CLICK TO PLAY</span>
     </div>
 
-    <!-- Volume & SFX Controls -->
     <div class="p5-audio-controls">
       <button id="p5-mute-btn" class="p5-icon-btn" type="button" title="Mute / Unmute" aria-label="Mute / Unmute">
         <span id="p5-mute-icon">🔊</span>
       </button>
 
-      <input id="p5-volume-slider" class="p5-volume-slider" type="range" min="0" max="1" step="0.05" value="0.5" title="Volume Slider" aria-label="Volume Slider">
+      <input id="p5-volume-slider" class="p5-volume-slider" type="range" min="0" max="1" step="0.05" value="0.25" title="Volume Slider" aria-label="Volume Slider">
 
       <button id="p5-sfx-toggle" class="p5-sfx-toggle active" type="button" title="Toggle UI Sound Effects">
         SFX: ON
       </button>
     </div>
 
-    <!-- Background Audio Element -->
     <audio id="bgm-player" src="assets/audio/last-surprise.mp3" loop preload="auto"></audio>
   </aside>
 
-  <!-- Persona 5 JavaScript Logic -->
   <script src="js/script.js"></script>
 </body>
 </html>

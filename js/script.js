@@ -1,7 +1,22 @@
-document.addEventListener('DOMContentLoaded', () => {
-  let audioCtx = null;
-  let sfxEnabled = true;
+/**
+ * PERSONA 5 PORTFOLIO JAVASCRIPT - WILLYS LOKA
+ * Features:
+ * - Metaverse Audio Engine (Default Auto-Play with 25% Chill Volume, Autoplay Fallback Handler)
+ * - Authentic Persona 5 Menu Select / Next SFX (assets/audio/select.mp3)
+ * - Phantom Thief Star Trail Custom Cursor
+ * - Floating Stars & Halftone Particle Background Canvas
+ * - 3D Tilt Effect on Hero Portrait, Project Cards, and Calling Card
+ */
 
+document.addEventListener('DOMContentLoaded', () => {
+  // ==========================================
+  // 1. AUTHENTIC PERSONA 5 UI SFX ENGINE
+  // ==========================================
+  let sfxEnabled = true;
+  const selectSfx = new Audio('assets/audio/select.mp3');
+  selectSfx.volume = 0.35;
+
+  let audioCtx = null;
   function initAudioCtx() {
     if (!audioCtx) {
       const AudioContextClass = window.AudioContext || window.webkitAudioContext;
@@ -14,6 +29,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Authentic Persona 5 Click / Next SFX
+  function playNextSfx() {
+    if (!sfxEnabled) return;
+    try {
+      const s = selectSfx.cloneNode();
+      s.volume = 0.35;
+      s.play().catch(() => {});
+    } catch (e) {
+      // Audio playback fallback
+    }
+  }
+
+  // P5 Menu Hover Sound (subtle snappy blip)
   function playHoverSfx() {
     if (!sfxEnabled) return;
     initAudioCtx();
@@ -24,52 +52,33 @@ document.addEventListener('DOMContentLoaded', () => {
       const gain = audioCtx.createGain();
       
       osc.type = 'triangle';
-      osc.frequency.setValueAtTime(880, audioCtx.currentTime); // A5
-      osc.frequency.exponentialRampToValueAtTime(1320, audioCtx.currentTime + 0.05); // E6
+      osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(1320, audioCtx.currentTime + 0.04);
 
-      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
-
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-
-      osc.start();
-      osc.stop(audioCtx.currentTime + 0.05);
-    } catch (e) {
-    }
-  }
-
-  function playClickSfx() {
-    if (!sfxEnabled) return;
-    initAudioCtx();
-    if (!audioCtx) return;
-
-    try {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-
-      osc.type = 'sawtooth';
-      osc.frequency.setValueAtTime(520, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(160, audioCtx.currentTime + 0.12);
-
-      gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
+      gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
 
       osc.connect(gain);
       gain.connect(audioCtx.destination);
 
       osc.start();
-      osc.stop(audioCtx.currentTime + 0.12);
-    } catch (e) {
-    }
+      osc.stop(audioCtx.currentTime + 0.04);
+    } catch (e) {}
   }
 
-  const interactiveElements = document.querySelectorAll('a, button, input[type="range"], .card, .btn');
-  interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => playHoverSfx());
-    el.addEventListener('click', () => playClickSfx());
-  });
+  // Attach SFX to all interactive elements
+  function attachInteractiveSfx() {
+    const interactiveElements = document.querySelectorAll('a, button, input[type="range"], .card, .btn, .c-btn');
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => playHoverSfx());
+      el.addEventListener('click', () => playNextSfx());
+    });
+  }
+  attachInteractiveSfx();
 
+  // ==========================================
+  // 2. METAVERSE AUDIO CONTROLLER (BGM)
+  // ==========================================
   const bgm = document.getElementById('bgm-player');
   const playBtn = document.getElementById('p5-play-btn');
   const playText = document.getElementById('p5-play-text');
@@ -80,36 +89,73 @@ document.addEventListener('DOMContentLoaded', () => {
   const widgetContainer = document.querySelector('.p5-audio-widget');
   const trackStatus = document.querySelector('.p5-track-status');
 
-  let prevVolume = 0.5;
+  // Set default low chill volume (0.25 = 50% lower than 0.5)
+  const DEFAULT_VOLUME = 0.25;
+  let prevVolume = DEFAULT_VOLUME;
 
-  if (bgm && playBtn) {
-    bgm.volume = parseFloat(volumeSlider ? volumeSlider.value : 0.5);
+  if (bgm) {
+    bgm.volume = DEFAULT_VOLUME;
+    if (volumeSlider) volumeSlider.value = DEFAULT_VOLUME;
 
+    // Audio error fallback
     bgm.addEventListener('error', () => {
       console.warn('Local BGM failed, trying online stream fallback...');
       if (trackStatus) trackStatus.textContent = 'STREAMING ONLINE';
       bgm.src = 'https://archive.org/download/last-surprise/Last%20Surprise.mp3';
       bgm.load();
+      startBgm();
     });
 
-    playBtn.addEventListener('click', () => {
-      initAudioCtx();
+    // Helper: start playback
+    function startBgm() {
       if (bgm.paused) {
         bgm.play().then(() => {
-          widgetContainer.classList.add('p5-playing');
+          if (widgetContainer) widgetContainer.classList.add('p5-playing');
           if (playText) playText.textContent = 'PAUSE';
           if (trackStatus) trackStatus.textContent = 'NOW PLAYING';
         }).catch(err => {
-          console.log('Playback prevented by browser policy:', err);
+          // Autoplay blocked by browser policy until user interacts
+          if (trackStatus) trackStatus.textContent = 'CLICK TO PLAY';
         });
-      } else {
-        bgm.pause();
-        widgetContainer.classList.remove('p5-playing');
-        if (playText) playText.textContent = 'PLAY BGM';
-        if (trackStatus) trackStatus.textContent = 'PAUSED';
       }
+    }
+
+    // Try auto-play immediately on load
+    startBgm();
+
+    // Fallback: If autoplay policy blocked unprompted audio, resume upon FIRST interaction anywhere
+    const userInteractionEvents = ['click', 'touchstart', 'keydown', 'scroll'];
+    function handleFirstUserInteraction() {
+      startBgm();
+      initAudioCtx();
+      userInteractionEvents.forEach(evt => {
+        window.removeEventListener(evt, handleFirstUserInteraction);
+      });
+    }
+    userInteractionEvents.forEach(evt => {
+      window.addEventListener(evt, handleFirstUserInteraction, { once: true, passive: true });
     });
 
+    // Play / Pause Toggle Button
+    if (playBtn) {
+      playBtn.addEventListener('click', () => {
+        initAudioCtx();
+        if (bgm.paused) {
+          bgm.play().then(() => {
+            widgetContainer.classList.add('p5-playing');
+            if (playText) playText.textContent = 'PAUSE';
+            if (trackStatus) trackStatus.textContent = 'NOW PLAYING';
+          }).catch(err => console.log('Playback error:', err));
+        } else {
+          bgm.pause();
+          widgetContainer.classList.remove('p5-playing');
+          if (playText) playText.textContent = 'PLAY BGM';
+          if (trackStatus) trackStatus.textContent = 'PAUSED';
+        }
+      });
+    }
+
+    // Volume Slider Control
     if (volumeSlider) {
       volumeSlider.addEventListener('input', (e) => {
         const val = parseFloat(e.target.value);
@@ -125,11 +171,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // Mute / Unmute Button
     if (muteBtn) {
       muteBtn.addEventListener('click', () => {
         if (bgm.muted || bgm.volume === 0) {
           bgm.muted = false;
-          bgm.volume = prevVolume > 0 ? prevVolume : 0.5;
+          bgm.volume = prevVolume > 0 ? prevVolume : DEFAULT_VOLUME;
           if (volumeSlider) volumeSlider.value = bgm.volume;
           if (muteIcon) muteIcon.textContent = '🔊';
         } else {
@@ -141,13 +188,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // SFX Toggle
     if (sfxToggleBtn) {
       sfxToggleBtn.addEventListener('click', () => {
         sfxEnabled = !sfxEnabled;
         if (sfxEnabled) {
           sfxToggleBtn.classList.add('active');
           sfxToggleBtn.textContent = 'SFX: ON';
-          playClickSfx();
+          playNextSfx();
         } else {
           sfxToggleBtn.classList.remove('active');
           sfxToggleBtn.textContent = 'SFX: OFF';
@@ -156,6 +204,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // ==========================================
+  // 3. PHANTOM THIEF STAR TRAIL CURSOR
+  // ==========================================
   const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
   let lastStarTime = 0;
   const starColors = ['#e60012', '#ffffff', '#ffe600'];
@@ -163,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!isTouchDevice) {
     document.addEventListener('mousemove', (e) => {
       const now = performance.now();
-      if (now - lastStarTime < 35) return; 
+      if (now - lastStarTime < 35) return;
       lastStarTime = now;
 
       createStarParticle(e.clientX, e.clientY);
@@ -191,6 +242,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 650);
   }
 
+  // ==========================================
+  // 4. FLOATING PARTICLES CANVAS BACKGROUND
+  // ==========================================
   const canvas = document.getElementById('p5-canvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
@@ -282,7 +336,10 @@ document.addEventListener('DOMContentLoaded', () => {
     renderParticles();
   }
 
-  const tiltElements = document.querySelectorAll('.cutin-card, .card');
+  // ==========================================
+  // 5. 3D INTERACTIVE TILT EFFECT
+  // ==========================================
+  const tiltElements = document.querySelectorAll('.cutin-card, .card, .calling-card-top, .calling-card-bottom');
 
   tiltElements.forEach(el => {
     el.addEventListener('mousemove', (e) => {
@@ -293,8 +350,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
-      const rotateX = ((y - centerY) / centerY) * -10;
-      const rotateY = ((x - centerX) / centerX) * 10;
+      const rotateX = ((y - centerY) / centerY) * -8;
+      const rotateY = ((x - centerX) / centerX) * 8;
 
       el.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
     });
